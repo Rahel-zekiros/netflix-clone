@@ -30,7 +30,6 @@ function App() {
       <footer>
         <Footer />
       </footer>
-      
     </div>
   );
 }
