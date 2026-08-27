@@ -44,3 +44,30 @@
   opacity: 1;
   pointer-events: auto;
 }
+
+
+
+/* SCREEN RESPONSIVENESS BREAKPOINTS MEDIA QUERIES DESIGN GRID */
+@media (max-width: 1024px) {
+  .sectionHeader { padding: 0 30px; }
+  .Row :global(.swiper) { padding: 10px 35px !important; }
+  .Row :global(.swiper-button-prev), .Row :global(.swiper-button-next) { height: 95px !important; top: 57px; }
+  .sectionTwo { padding: 90px 0 130px 0 !important; }
+}
+
+@media (max-width: 768px) {
+  .sectionHeader { padding: 0 20px; }
+  .sectionHeader h2 { font-size: 16px; }
+  .Row :global(.swiper) { padding: 10px 25px !important; }
+  .Row :global(.swiper-button-prev), .Row :global(.swiper-button-next) { width: 30px; height: 85px !important; top: 52px; }
+  .Row :global(.swiper-slide):has(:hover) { margin-left: 12px !important; margin-right: 12px !important; }
+}
+
+@media (max-width: 480px) {
+  .sectionHeader { padding: 0 15px; }
+  .Row :global(.swiper) { padding: 10px 18px !important; }
+  .Row :global(.swiper-button-prev), .Row :global(.swiper-button-next) { width: 25px; height: 85px !important; top: 52px; }
+  .rowWrapper { margin-bottom: 35px !important; }
+  .sectionTwo { padding: 80px 0 100px 0 !important; }
+  .Row :global(.swiper-slide):has(:hover) { margin-left: 6px !important; margin-right: 6px !important; }
+}
