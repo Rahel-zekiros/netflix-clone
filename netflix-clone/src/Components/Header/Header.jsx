@@ -1,8 +1,13 @@
-import React from "react";
+
+import React, { useEffect, useState } from "react";
 import style from "./Header.module.css";
-import { FiSearch, FiBell, FiUser, FiChevronDown } from "react-icons/fi";
+import {
+  FiSearch,
+  FiBell,
+  FiUser,
+  FiChevronDown,
+} from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 
 function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -33,12 +38,12 @@ function Header() {
     >
       {/* LEFT SIDE */}
       <div className={style.headerLeft}>
-
-        {/* NETFLIX LOGO */}
+        {/* FLIXORA LOGO */}
         <div className={style.logo}>
           <span className={style.logoIcon}>▶</span>
-       <span className={style.logoText}>Flixora</span>
-      </div>
+          <span className={style.logoText}>Flixora</span>
+        </div>
+
         {/* NAVIGATION */}
         <nav className={style.navMenu}>
           <Link to="" className={style.navLink}>
@@ -69,7 +74,6 @@ function Header() {
 
       {/* RIGHT SIDE */}
       <div className={style.headerRight}>
-
         {/* SEARCH */}
         <div className={style.searchContainer}>
           <button
@@ -108,7 +112,6 @@ function Header() {
 
         {/* PROFILE */}
         <div className={style.profileContainer}>
-
           {/* USER ICON */}
           <button
             className={style.profileButton}
@@ -132,7 +135,6 @@ function Header() {
           {/* PROFILE DROPDOWN */}
           {isProfileOpen && (
             <div className={style.profileDropdown}>
-
               <button className={style.dropdownItem}>
                 Account
               </button>
@@ -148,7 +150,6 @@ function Header() {
               <button className={style.dropdownItem}>
                 Sign out
               </button>
-
             </div>
           )}
         </div>
@@ -158,4 +159,3 @@ function Header() {
 }
 
 export default Header;
-

@@ -2,9 +2,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "./DisplayRow.module.css";
 import SlideShow from "../SlideShow/SlideShow";
+<<<<<<< HEAD
 import { movieInstance } from "../../Utility/MovieInstance";
+=======
+import BASE_URL from "../../Utility/MovieInstance"
+>>>>>>> 23d1f20 (save my current work before merge)
 import requests from "../../Utility/requestUrls";
-
 function DisplayRow() {
   const [movies, setMovies] = useState({
     trending: [],
@@ -33,6 +36,7 @@ function DisplayRow() {
         romanceRes,
         docRes,
       ] = await Promise.all([
+<<<<<<< HEAD
         movieInstance.get(requests.fetchTrending),
         movieInstance.get(requests.fetchNetflixOriginals),
         movieInstance.get(requests.fetchTopRatedMovies),
@@ -41,6 +45,16 @@ function DisplayRow() {
         movieInstance.get(requests.fetchHorrorMovies),
         movieInstance.get(requests.fetchRomanceMovies),
         movieInstance.get(requests.fetchDocumentaries),
+=======
+        BASE_URL.get(requests.fetchTrending),
+  BASE_URL.get(requests.fetchNetflixOriginals),
+  BASE_URL.get(requests.fetchTopRatedMovies),
+  BASE_URL.get(requests.fetchActionMovies),
+  BASE_URL.get(requests.fetchComedyMovies),
+  BASE_URL.get(requests.fetchHorrorMovies),
+  BASE_URL.get(requests.fetchRomanceMovies),
+  BASE_URL.get(requests.fetchDocumentaries),
+>>>>>>> 23d1f20 (save my current work before merge)
       ]);
 
       setMovies({
@@ -54,8 +68,14 @@ function DisplayRow() {
         documentaries: docRes.data.results,
       });
     } catch (error) {
+<<<<<<< HEAD
       console.log("API ERROR:", error);
       console.log("Response:", error.response?.data);
+=======
+       console.log("API ERROR:", error);
+    console.log("Response:", error.response?.data);
+      console.log(error);
+>>>>>>> 23d1f20 (save my current work before merge)
     }
   };
 
