@@ -7,7 +7,8 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
 
-function SlideShow({ title, movies }) {
+function SlideShow({ title, movies = [] }) {  
+    console.log(movies)
     return (
         <div>
             <h2 className={style.title}>{title}</h2>
@@ -17,6 +18,11 @@ function SlideShow({ title, movies }) {
                     navigation
                     spaceBetween={10}
                     slidesPerView={5.8}
+                     breakpoints={{
+            480: { slidesPerView: 2, slidesPerGroup: 2 },
+            768: { slidesPerView: 4, slidesPerGroup: 4 },
+            1024: { slidesPerView: 6, slidesPerGroup: 6 }, 
+          }}
 
                 >
                     {
