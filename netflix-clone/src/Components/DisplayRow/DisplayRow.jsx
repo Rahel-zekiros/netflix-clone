@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./DisplayRow.module.css";
 import SlideShow from "../SlideShow/SlideShow";
 import BASE_URL from "../../Utility/MovieInstance"
-import requests from "../../Utility/requestUrls";
+import requests from "../../Utility/requesturls.js";
 function DisplayRow() {
   const [movies, setMovies] = useState({
     trending: [],
