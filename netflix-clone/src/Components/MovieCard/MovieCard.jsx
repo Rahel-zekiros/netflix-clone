@@ -1,5 +1,7 @@
+
 import React from "react";
 import styles from "./MovieCard.module.css";
+
 import { FaCirclePlay } from "react-icons/fa6";
 import { BsPlusCircle } from "react-icons/bs";
 import { GoCheckCircleFill } from "react-icons/go";
@@ -56,106 +58,106 @@ function MovieCard({ movie }) {
     : "/placeholder.jpg";
 
   return (
-  <div className={styles.cardWrapper}>
-
-    {/* Main Movie Poster */}
-    <img
-      className={styles.poster}
-      src={image}
-      alt={title}
-    />
-
-    {/* Hover Card */}
-    <div className={styles.hoverCard}>
-
-      {/* Hover Image */}
+    <div className={styles.cardWrapper}>
+      {/* Main Movie Poster */}
       <img
-        className={styles.hoverImage}
+        className={styles.poster}
         src={image}
         alt={title}
       />
 
-      {/* Movie Title */}
-      <h3 className={styles.cardTitle}>
-        {title}
-      </h3>
+      {/* Hover Card */}
+      <div className={styles.hoverCard}>
+        {/* Hover Image */}
+        <img
+          className={styles.hoverImage}
+          src={image}
+          alt={title}
+        />
 
-      {/* Buttons */}
-      <div className={styles.buttonsRow}>
+        {/* Recently Added */}
+        <div className={styles.badge}>
+          Recently added
+        </div>
 
-        <button
-          type="button"
-          className={styles.iconButton}
-          aria-label="Play"
-        >
-          <FaCirclePlay />
-        </button>
+        {/* Movie Title */}
+        <h3 className={styles.cardTitle}>
+          {title}
+        </h3>
 
-        <button
-          type="button"
-          className={styles.iconButton}
-          aria-label="Add to list"
-        >
-          <BsPlusCircle />
-        </button>
+        {/* Buttons */}
+        <div className={styles.buttonsRow}>
+          <button
+            type="button"
+            className={styles.iconButton}
+            aria-label="Play"
+          >
+            <FaCirclePlay />
+          </button>
 
-        <button
-          type="button"
-          className={styles.iconButton}
-          aria-label="Like"
-        >
-          <GoCheckCircleFill />
-        </button>
+          <button
+            type="button"
+            className={styles.iconButton}
+            aria-label="Add to list"
+          >
+            <BsPlusCircle />
+          </button>
 
-        <button
-          type="button"
-          className={styles.iconButtonSmall}
-          aria-label="More information"
-        >
-          <IoIosArrowDropdownCircle />
-        </button>
+          <button
+            type="button"
+            className={styles.iconButton}
+            aria-label="Like"
+          >
+            <GoCheckCircleFill />
+          </button>
 
+          <button
+            type="button"
+            className={styles.iconButtonSmall}
+            aria-label="More information"
+          >
+            <IoIosArrowDropdownCircle />
+          </button>
+        </div>
+
+        {/* Movie Metadata */}
+        <div className={styles.metaRow}>
+          <span className={styles.tag}>
+            {movie?.adult ? "18+" : "U/A 16+"}
+          </span>
+
+          <span className={styles.tag}>
+            {mediaType}
+          </span>
+
+          <span className={styles.tag}>
+            HD
+          </span>
+        </div>
+
+        {/* Genres */}
+        <div className={styles.genres}>
+          {genres.length > 0
+            ? genres.map((genre, index) => (
+                <span key={genre}>
+                  {genre}
+                  {index < genres.length - 1 && (
+                    <span className={styles.dot}>•</span>
+                  )}
+                </span>
+              ))
+            : "Genre unavailable"}
+        </div>
+
+        {/* Overview */}
+        {movie?.overview && (
+          <p className={styles.overview}>
+            {movie.overview}
+          </p>
+        )}
       </div>
-
-      {/* Movie Metadata */}
-      <div className={styles.metaRow}>
-        <span className={styles.tag}>
-          {movie?.adult ? "18+" : "U/A 16+"}
-        </span>
-
-        <span className={styles.tag}>
-          {mediaType}
-        </span>
-
-        <span className={styles.tag}>
-          HD
-        </span>
-      </div>
-
-      {/* Genres */}
-      <div className={styles.genres}>
-        {genres.length > 0
-          ? genres.map((genre, index) => (
-              <span key={genre}>
-                {genre}
-                {index < genres.length - 1 && (
-                  <span className={styles.dot}>•</span>
-                )}
-              </span>
-            ))
-          : "Genre unavailable"}
-      </div>
-
-      {/* Overview */}
-      {movie?.overview && (
-        <p className={styles.overview}>
-          {movie.overview}
-        </p>
-      )}
-
     </div>
-  </div>
-);
+  );
 }
 
 export default MovieCard;

@@ -56,4 +56,3 @@ function SlideShow({ title, movies = [] }) {
 }
 
 export default SlideShow;
-

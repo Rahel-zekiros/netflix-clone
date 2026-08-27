@@ -1,3 +1,4 @@
+
 .Row {
   position: relative;
   overflow: visible;
@@ -46,6 +47,7 @@
 }
 
 /* SCREEN RESPONSIVENESS BREAKPOINTS MEDIA QUERIES DESIGN GRID */
+
 @media (max-width: 1024px) {
   .sectionHeader {
     padding: 0 30px;
