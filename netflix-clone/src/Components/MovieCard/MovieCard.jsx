@@ -7,7 +7,6 @@ import { IoIosArrowDropdownCircle } from "react-icons/io";
 
 const IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
 
-// TMDB genre id -> name, covering both /discover/movie and /discover/tv ids
 const GENRE_MAP = {
   28: "Action",
   12: "Adventure",
@@ -40,70 +39,113 @@ const GENRE_MAP = {
 
 function MovieCard({ movie }) {
   const title = movie?.title || movie?.name || "Untitled";
-  const mediaType = movie?.title ? "Movie" : movie?.name ? "TV Show" : "Movie";
+
+  const mediaType =
+    movie?.media_type === "tv" || movie?.name
+      ? "TV Show"
+      : "Movie";
+
   const genres =
     movie?.genre_ids
       ?.map((id) => GENRE_MAP[id])
       .filter(Boolean)
       .slice(0, 3) || [];
 
+  const image = movie?.poster_path
+    ? `${IMAGE_BASE}${movie.poster_path}`
+    : "/placeholder.jpg";
+
   return (
     <div className={styles.cardWrapper}>
-      {/* poster image */}
+
+      {/* Main Movie Poster */}
       <img
         className={styles.poster}
-        src={`${IMAGE_BASE}${movie?.poster_path}`}
-        alt="poster image"
+        src={image}
+        alt={title}
       />
 
-      {/* hover card */}
+      {/* Hover Card */}
       <div className={styles.hoverCard}>
-        {/* img */}
+
+        {/* Hover Image */}
         <img
           className={styles.hoverImage}
-          src={`${IMAGE_BASE}${movie?.poster_path}`}
-          alt="hover image"
+          src={image}
+          alt={title}
         />
-        {/* badge */}
-        <div className={styles.badge}>Recently added</div>
-        {/* title */}
-        <h3 className={styles.cardTitle}>{title}</h3>
-        {/* button row */}
-        <div className={styles.buttonsRow}>
-          <FaCirclePlay
-            className={styles.circleButton}
-            color="white"
-            size={40}
-          />
-          <BsPlusCircle
-            className={styles.circleButton}
-            color="white"
-            size={40}
-          />
-          <GoCheckCircleFill
-            className={styles.circleButton}
-            color="white"
-            size={40}
-          />
-          <IoIosArrowDropdownCircle
-            className={styles.circleButtonSmall}
-            color="white"
-            size={40}
-          />
-        </div>
-        {/* metadata row */}
-        <div className={styles.metaRow}>
-          <span className={styles.tag}>{movie?.adult ? "18+" : "U/A 16+"}</span>
-          <span className={styles.tag}>{mediaType}</span>
-          <span className={styles.tag}>HD</span>
+
+        {/* Recently Added */}
+        <div className={styles.badge}>
+          Recently added
         </div>
 
-        {/* genres */}
+        {/* Movie Title */}
+        <h3 className={styles.cardTitle}>
+          {title}
+        </h3>
+
+        {/* Buttons */}
+        <div className={styles.buttonsRow}>
+
+          <button
+            type="button"
+            className={styles.iconButton}
+            aria-label="Play"
+          >
+            <FaCirclePlay />
+          </button>
+
+          <button
+            type="button"
+            className={styles.iconButton}
+            aria-label="Add to list"
+          >
+            <BsPlusCircle />
+          </button>
+
+          <button
+            type="button"
+            className={styles.iconButton}
+            aria-label="Like"
+          >
+            <GoCheckCircleFill />
+          </button>
+
+          <button
+            type="button"
+            className={styles.iconButtonSmall}
+            aria-label="More information"
+          >
+            <IoIosArrowDropdownCircle />
+          </button>
+
+        </div>
+
+        {/* Movie Metadata */}
+        <div className={styles.metaRow}>
+
+          <span className={styles.tag}>
+            {movie?.adult ? "18+" : "U/A 16+"}
+          </span>
+
+          <span className={styles.tag}>
+            {mediaType}
+          </span>
+
+          <span className={styles.tag}>
+            HD
+          </span>
+
+        </div>
+
+        {/* Genres */}
         <div className={styles.genres}>
           {genres.length > 0
-            ? genres.map((g, index) => (
-                <span key={g}>
-                  {g}
+            ? genres.map((genre, index) => (
+                <span key={genre}>
+                  {genre}
+
                   {index < genres.length - 1 && (
                     <span className={styles.dot}>•</span>
                   )}
@@ -111,6 +153,14 @@ function MovieCard({ movie }) {
               ))
             : "Genre unavailable"}
         </div>
+
+        {/* Overview */}
+        {movie?.overview && (
+          <p className={styles.overview}>
+            {movie.overview}
+          </p>
+        )}
+
       </div>
     </div>
   );

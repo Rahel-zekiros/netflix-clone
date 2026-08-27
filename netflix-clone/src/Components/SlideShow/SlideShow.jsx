@@ -16,13 +16,34 @@ function SlideShow({ title, movies = [] }) {
                 <Swiper
                     modules={[Navigation]}
                     navigation
-                    spaceBetween={10}
-                    slidesPerView={5.8}
-                     breakpoints={{
-            480: { slidesPerView: 2, slidesPerGroup: 2 },
-            768: { slidesPerView: 4, slidesPerGroup: 4 },
-            1024: { slidesPerView: 6, slidesPerGroup: 6 }, 
-          }}
+                   spaceBetween={30}
+                 slidesPerView={2}
+
+    breakpoints={{
+       480: {
+          slidesPerView: 2,
+        slidesPerGroup: 2,
+         spaceBetween: 20,
+    },
+
+     768: {
+         slidesPerView: 3,
+           slidesPerGroup: 3,
+          spaceBetween: 25,
+     },
+
+      1024: {
+         slidesPerView: 5,
+        slidesPerGroup: 5,
+        spaceBetween: 30,
+      },
+
+        1280: {
+             slidesPerView: 6,
+             slidesPerGroup: 6,
+               spaceBetween: 30,
+       },
+     }}
 
                 >
                     {
