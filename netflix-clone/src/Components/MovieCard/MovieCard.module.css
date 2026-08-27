@@ -1,7 +1,7 @@
 .cardWrapper {
   position: relative;
   width: 100%;
-  height: 180px;
+  height: 200px;
   cursor: pointer;
   overflow: visible;
   z-index: 1;
@@ -15,19 +15,17 @@
 .poster {
   display: block;
   width: 100%;
-  height: 128px;
+  height: 150px;
   object-fit: cover;
   border-radius: 6px;
   background: #222;
 }
-
-/* Hover card */
 .hoverCard {
   position: absolute;
   top: -45px;
   left: 50%;
 
-  width: 220px;
+  width: 240px;
   min-height: 300px;
 
   background: #111;
@@ -46,18 +44,19 @@
     transform 0.25s ease;
 
   z-index: 99999;
-
   pointer-events: none;
-}
 
+  /* ADD THESE */
+  overflow: visible;
+  padding-bottom: 10px;
+}
 .cardWrapper:hover .hoverCard {
   opacity: 1;
   visibility: visible;
-
   transform: translateX(-50%) scale(1);
-
   pointer-events: auto;
 }
+
 
 /* Hover image */
 .hoverImage {
@@ -188,21 +187,15 @@
   margin: 0 5px;
   color: #777;
 }
-
-/* Overview */
 .overview {
-  margin: 0 12px 12px;
-
+  margin: 10px 12px 15px;
   color: #bcbcbc;
-
-  font-size: 9px;
-  line-height: 1.35;
+  font-size: 12px;
+  line-height: 1.4;
 
   display: -webkit-box;
-
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-
+  -webkit-line-clamp: 2;
   overflow: hidden;
 }
 
