@@ -13,3 +13,5 @@ import scream from '../assets/image/pursuitOfJade.webp'
 import TheBride from '../assets/image/TheBride.webp'
 import Vladimir from '../assets/image/vladimir.webp'
 import YoungSherlock from '../assets/image/youngSherlock.webp'
+export const movies = [
+]
