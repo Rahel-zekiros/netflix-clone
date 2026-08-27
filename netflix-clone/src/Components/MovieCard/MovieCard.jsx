@@ -75,11 +75,6 @@ function MovieCard({ movie }) {
           alt={title}
         />
 
-        {/* Recently Added */}
-        <div className={styles.badge}>
-          Recently added
-        </div>
-
         {/* Movie Title */}
         <h3 className={styles.cardTitle}>
           {title}
@@ -148,13 +143,12 @@ function MovieCard({ movie }) {
               ))
             : "Genre unavailable"}
         </div>
+          {movie?.overview && (
+       <p className={styles.overview}>
+         {movie.overview}
+  </p>
+)}
 
-        {/* Overview */}
-        {movie?.overview && (
-          <p className={styles.overview}>
-            {movie.overview}
-          </p>
-        )}
       </div>
     </div>
   );
