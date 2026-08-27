@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./DisplayRow.module.css";
 import SlideShow from "../SlideShow/SlideShow";
-import { movies } from "../../Data/Data";
-import { movieInstance } from "../../Utility/MovieInstance";
+import BASE_URL from "../../Utility/MovieInstance"
 import requests from "../../Utility/requestUrls";
-
 function DisplayRow() {
   const [movies, setMovies] = useState({
     trending: [],
@@ -33,14 +31,14 @@ function DisplayRow() {
         romanceRes,
         docRes,
       ] = await Promise.all([
-        movieInstance.get(requests.fetchTrending),
-        movieInstance.get(requests.fetchTopRatedMovies),
-        movieInstance.get(requests.fetchActionMovies),
-        movieInstance.get(requests.fetchComedyMovies),
-        movieInstance.get(requests.fetchHorrorMovies),
-        movieInstance.get(requests.fetchRomanceMovies),
-        movieInstance.get(requests.fetchNetflixOriginals),
-        movieInstance.get(requests.fetchDocumentaries),
+        BASE_URL.get(requests.fetchTrending),
+  BASE_URL.get(requests.fetchNetflixOriginals),
+  BASE_URL.get(requests.fetchTopRatedMovies),
+  BASE_URL.get(requests.fetchActionMovies),
+  BASE_URL.get(requests.fetchComedyMovies),
+  BASE_URL.get(requests.fetchHorrorMovies),
+  BASE_URL.get(requests.fetchRomanceMovies),
+  BASE_URL.get(requests.fetchDocumentaries),
       ]);
 
       setMovies({
@@ -54,6 +52,8 @@ function DisplayRow() {
         documentaries: docRes.data.results,
       });
     } catch (error) {
+       console.log("API ERROR:", error);
+    console.log("Response:", error.response?.data);
       console.log(error);
     }
   };
@@ -69,3 +69,4 @@ function DisplayRow() {
 }
 
 export default DisplayRow;
+
