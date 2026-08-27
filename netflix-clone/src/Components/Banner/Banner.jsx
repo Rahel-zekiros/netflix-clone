@@ -26,3 +26,4 @@ useEffect(() => {
 
     fetchBannerMovie();
 }, []);
+
