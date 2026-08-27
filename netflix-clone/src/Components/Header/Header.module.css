@@ -90,7 +90,7 @@
 }
 /* NETFLIX LOGO  */
 .logo {
-  color: #e50914;
+  color:  #0000ff;
   font-size: 28px;
   letter-spacing: -1px;
   line-height: 1;
@@ -479,4 +479,18 @@
     width: 270px;
   }
 
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: 800;
+  cursor: pointer;
+
+  transition: transform 6s ease;
+}
+
+.logo:hover {
+  transform: scale(1.15);
 }

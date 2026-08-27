@@ -35,8 +35,10 @@ function Header() {
       <div className={style.headerLeft}>
 
         {/* NETFLIX LOGO */}
-        <div className={style.logo}>NETFLIX</div>
-
+        <div className={style.logo}>
+          <span className={style.logoIcon}>▶</span>
+       <span className={style.logoText}>Flixora</span>
+      </div>
         {/* NAVIGATION */}
         <nav className={style.navMenu}>
           <Link to="" className={style.navLink}>
