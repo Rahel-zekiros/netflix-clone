@@ -39,14 +39,12 @@
     opacity 0.25s ease,
     visibility 0.25s ease,
     transform 0.25s ease;
-<<<<<<< HEAD
-  z-index: 99999;
-=======
 
->>>>>>> 8335524 (fix card hover layout)
+  z-index: 99999;
+
+
   pointer-events: none;
   overflow: visible;
-  padding-bottom: 10px;
 
 
   /* ADD THESE */

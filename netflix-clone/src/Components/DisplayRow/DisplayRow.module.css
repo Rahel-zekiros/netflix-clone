@@ -1,34 +1,19 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 8335524 (fix card hover layout)
 .mainWrapper {
   width: 100%;
   min-height: 100vh;
   background-color: #000;
   color: #fff;
-<<<<<<< HEAD
+
   padding: 25px 2% 60px;
 
   /* Prevent horizontal browser scrolling. */
-=======
-  padding: 10px 0 30px;
->>>>>>> 8335524 (fix card hover layout)
   overflow-x: clip;
   overflow-y: visible;
 }
 
-<<<<<<< HEAD
 @media (max-width: 600px) {
   .mainWrapper {
     padding-top: 15px;
     padding-bottom: 40px;
-=======
-/* MOBILE */
-@media (max-width: 600px) {
-  .mainWrapper {
-    padding-top: 10px;
-    padding-bottom: 30px;
->>>>>>> 8335524 (fix card hover layout)
   }
 }
