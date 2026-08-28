@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaPlay, FaPlus } from "react-icons/fa";
 import styles from "./Banner.module.css";
 import BASE_URL from "../../Utility/MovieInstance.js";
-import requests from "../../Utility/requesturls.js";
+import requests from "../../Utility/requestUrls.js";
 
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
 
